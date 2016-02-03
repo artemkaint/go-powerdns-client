@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"github.com/miekg/dns"
 	"github.com/skynetservices/skydns1/msg"
-	"powerdns/response"
+	"github.com/artemkaint/go-powerdns-client/powerdns/response"
 	"io"
 	"net/http"
 	"net/url"
