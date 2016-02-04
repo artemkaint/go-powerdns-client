@@ -62,7 +62,7 @@ func NewClient(base, secret, domain, basedns string) (*Client, error) {
 }
 
 // GET /servers
-func (c *Client) GetServers() (*[]response.ServerResource, error) {
+func (c *Client) GetServers() ([]response.ServerResource, error) {
     b := bytes.NewBuffer(nil)
     req, err := c.newRequest("GET", c.joinUrl("servers"), b)
     if err != nil {
@@ -81,7 +81,7 @@ func (c *Client) GetServers() (*[]response.ServerResource, error) {
     	default:
     		return nil, ErrInvalidResponse
     }
-    var s *[]response.ServerResource
+    var s []response.ServerResource
     if err := json.NewDecoder(resp.Body).Decode(&s); err != nil {
         return nil, err
     }
